@@ -13,7 +13,7 @@
 		#toolbar {
 			background-color: #333;
 			color: #fff;
-			padding: 10px;
+			padding: 0px;
 			text-align: center;
 		}
 		#toolbar h1 {
@@ -21,7 +21,7 @@
 		}
 		#toolbar button {
 			margin: 5px;
-			padding: 5px 10px;
+			padding: 20px 20px;
 			background-color: #555;
 			color: #fff;
 			border: none;
@@ -29,7 +29,7 @@
 		}
 		#iframe-container {
 			width: 100%;
-			height: calc(100vh - 80px); /* Adjust height as needed */
+			height: calc(100vh - 15vh); /*Might need tweaks*/
 		}
 		#iframe-container iframe {
 			width: 100%;
@@ -39,21 +39,25 @@
 	</style>
 </head>
 <body>
-	<div id="toolbar">
-		<h1>Boredle.me</h1>
+	<header id="toolbar">
+		<div style="position: relative; padding-bottom: 4vh ;">
+			<h1 style="position: absolute; left: 50%; transform: translateX(-50%);">Boredle.me</h1>
+			<a href='https://ko-fi.com/J3J6VRKCS' target='_blank' style="position: absolute; right: 0;"><img height='36' style='height:36px;' src='https://storage.ko-fi.com/cdn/kofi5.png?v=3' alt='Buy Me a Coffee at ko-fi.com'></a>
+		</div>
+		
+		<button onclick="prevWebsite()">Back</button>	
 		<span id="progress"></span>
-		<button onclick="prevWebsite()">Back</button>
 		<button onclick="nextWebsite()">Next</button>
-	</div>
-	<div id="iframe-container">
-		<iframe src=""></iframe>
-	</div>
+	</header>
+	<main id="iframe-container">
+		<iframe src="null"></iframe>
+	</main>
 	<script>
 		// List of websites
 		var websites = [
 			//"https://www.nytimes.com/games/wordle/",
 			//"https://www.gamedle.wtf/",
-			"https://pokedoku.com/",
+			//"https://pokedoku.com/",
 			"https://guessthe.game/",
 			"https://games.oec.world/en/tradle/",
 			"https://globle-game.com/",
