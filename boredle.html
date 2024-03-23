@@ -1,0 +1,67 @@
+<!doctypehtml><html lang=en><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><title>Boredle.Me</title><style>body{font-family:Arial,sans-serif;margin:0;padding:0}#toolbar{background-color:#333;color:#fff;padding:10px;text-align:center}#toolbar h1{margin:0}#toolbar button{margin:5px;padding:5px 10px;background-color:#555;color:#fff;border:none;cursor:pointer}#iframe-container{width:100%;height:calc(100vh - 80px)}#iframe-container iframe{width:100%;height:100%;border:none}</style><div id=toolbar><h1>Boredom</h1><span id=progress></span> <button onclick=prevWebsite()>Back</button> <button onclick=nextWebsite()>Next</button></div><div id=iframe-container><iframe src=""></iframe></div><script>// List of websites
+    var websites = [
+	//"https://www.nytimes.com/games/wordle/",
+	//"https://www.gamedle.wtf/",
+	"https://pokedoku.com/",
+	"https://guessthe.game/",
+	"https://games.oec.world/en/tradle/",
+	"https://globle-game.com/",
+	"https://worldle.teuteuf.fr/",
+	"https://costcodle.com/",
+	//"https://www.puckdoku.com/",
+	"https://framed.wtf/",
+	"https://timeguessr.com/",
+	"https://www.cinenerdle2.app/",
+	//"https://dordle.online/",
+	"https://www.merriam-webster.com/games/quordle/",
+	"https://dailydozentrivia.com/",
+	//"https://www.nytimes.com/games/connections",
+	"https://heardlewordle.io/",
+	"https://mario-heardle.glitch.me/",
+	"https://zelda-heardle.glitch.me/",
+	"https://travle.earth/",
+	"https://moviegrid.io/",
+	"https://spellcheckgame.com/",
+	"https://boxofficega.me/",
+	"https://movietomovie.com/",
+	"https://metazooa.com/",
+	//"https://www.nytimes.com/crosswords/game/mini",
+	//"https://factle.app/",
+	//"https://factle.app/sports?ref=producthunt",
+	"https://bandle.app/",
+	//"https://www.rottentomatoes.com/movie-trivia/",
+	"https://listed.fun/",
+	"https://www.chronophoto.app/",
+	"https://playdopple.com/"
+	// Add more websites as needed
+    ];
+
+    // Randomize website order
+    websites.sort(() => Math.random() - 0.5);
+
+    // Counter for tracking current website index
+    var currentIndex = 0;
+
+    // Display progress
+    function displayProgress() {
+      var progressElement = document.getElementById("progress");
+      progressElement.textContent = (currentIndex + 1) + "/" + websites.length;
+    }
+
+    // Function to load next website
+    function nextWebsite() {
+      currentIndex = (currentIndex + 1) % websites.length;
+      document.querySelector("#iframe-container iframe").src = websites[currentIndex];
+      displayProgress();
+    }
+
+    // Function to load previous website
+    function prevWebsite() {
+      currentIndex = (currentIndex - 1 + websites.length) % websites.length;
+      document.querySelector("#iframe-container iframe").src = websites[currentIndex];
+      displayProgress();
+    }
+
+    // Initial website load
+    document.querySelector("#iframe-container iframe").src = websites[currentIndex];
+    displayProgress();</script>
