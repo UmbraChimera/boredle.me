@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Boredle.me</title>
     <style>
       body {
@@ -14,7 +14,7 @@
       #toolbar {
         background-color: #333;
         color: #fff;
-        padding: 0px;
+        padding: 0;
         text-align: center;
       }
 
@@ -30,7 +30,6 @@
         border: none;
         cursor: pointer;
         display: none;
-        /* Hide Prev/Next buttons by default */
       }
 
       #options-container {
@@ -44,13 +43,11 @@
 
       #iframe-container {
         display: none;
-        /* Hide iframe container by default */
       }
 
       #iframe-container iframe {
         width: 100%;
         height: calc(100vh - 15vh);
-        /* Adjust the height as needed */
         border: none;
       }
     </style>
@@ -218,7 +215,7 @@
           <input
             type="text"
             id="custom-url"
-            onkeydown="if(event.keyCode === 13) { event.preventDefault(); addCustomURL(); }"
+            onkeydown="13===event.keyCode&&(event.preventDefault(),addCustomURL())"
           />
         </label>
         <button type="button" onclick="addCustomURL()">Add Custom URL</button>
@@ -236,8 +233,7 @@
           style="position: absolute; right: 0"
         >
           <img
-            height="20"
-            style="height: 20px"
+            style="height: 40px"
             src="https://storage.ko-fi.com/cdn/brandasset/kofi_s_tag_dark.png"
             alt="Buy Me a Coffee at ko-fi.com"
           />
@@ -265,14 +261,11 @@
           var checkboxes = document.querySelectorAll(
             "input[name='website']:checked"
           );
-
           // Clear the selectedWebsites array before adding newly selected websites
           selectedWebsites = [];
-
           checkboxes.forEach(function (checkbox) {
             selectedWebsites.push(checkbox.value);
           });
-
           if (selectedWebsites.length > 0) {
             document.getElementById("options-container").style.display = "none"; // Hide options container
             document.getElementById("iframe-container").style.display = "block"; // Show iframe container
@@ -288,7 +281,6 @@
             alert("Please select at least one website or add a custom URL.");
           }
         });
-
       // Function to load website in iframe or open in new tab if it fails to load
       function loadWebsite(url) {
         var iframe = document.createElement("iframe");
@@ -353,18 +345,15 @@
           checkbox.type = "checkbox";
           checkbox.name = "website";
           checkbox.value = customURL;
-
           var label = document.createElement("label");
           label.appendChild(checkbox);
           label.appendChild(document.createTextNode(customURL));
-
           document
             .getElementById("options-form")
             .insertBefore(
               label,
               document.getElementById("custom-url").parentNode
             );
-
           checkbox.checked = true; // Auto-select the added custom URL
           document.getElementById("custom-url").value = ""; // Clear the input field
         }
@@ -414,11 +403,9 @@
             checkbox.name = "website";
             checkbox.value = customURL;
             checkbox.checked = true;
-
             var label = document.createElement("label");
             label.appendChild(checkbox);
             label.appendChild(document.createTextNode(customURL));
-
             document
               .getElementById("options-form")
               .insertBefore(
