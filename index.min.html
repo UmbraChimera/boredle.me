@@ -1,10 +1,27 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Boredle.me</title><style>body{font-family:Arial,sans-serif;margin:0;padding:0}button{cursor:pointer}.toolbar{background-color:#343b45;color:#fff;padding:0;text-align:center;display:block;overflow:hidden;min-height:1.8em;position:sticky;top:0;width:100%}.toolbar h1{margin:0;margin-top:.05em;display:block;color:#d3d3d3;overflow:none;line-height:.8em;overflow:hidden;position:absolute;left:50%;transform:translateX(-50%)}.toolbar button{font-family:Trebuchet MS;font-size:1em;margin-top:2em;margin-bottom:.3em;border-width:2px;color:rgba(0,0,0,1);border-color:#333029;font-weight:700;border-top-left-radius:15px;border-top-right-radius:15px;border-bottom-left-radius:15px;border-bottom-right-radius:15px;box-shadow:0 1px 0 0 #1c1b18;text-shadow:0 1px 0 #fff;background:linear-gradient(rgba(74,74,74,1),rgba(155,155,155,1));display:none}.toolbar button:hover{background:linear-gradient(rgba(155,155,155,1),rgba(74,74,74,1))}.titlebar{width:100%;display:block}.titlebar a{position:absolute;right:0}.titlebar img{height:1.8em;width:6em;max-width:10dvw}#options-container{padding:20px}#options-container label{display:block;margin-bottom:10px}#iframe-container{display:none}#iframe-container iframe{width:100%;height:calc(100vh - 5vh);border:none}#bottombar{background-color:#343b45;color:#fff;padding:0;text-align:center;display:block;overflow:hidden;min-height:.77em;position:fixed;bottom:0;width:100%}#bottombar h4{margin:0;display:block;color:#d3d3d3;overflow:none;line-height:.82em;overflow:hidden;position:absolute;left:50%;transform:translateX(-50%)}</style></head><body><header class="toolbar"><div class="titlebar"><h1>Boredle.me</h1><a href="https://ko-fi.com/J3J6VRKCS" target="_blank"><img id="donate" src="https://storage.ko-fi.com/cdn/brandasset/kofi_s_tag_dark.png" alt="Buy Me a Coffee at ko-fi.com"></a></div><div id="nav"><button onclick="prevWebsite()">Prev</button> <span id="progress"></span> <button onclick="nextWebsite()">Next</button></div></header><div id="options-container"><h2>Select Websites:</h2><form id="options-form"><label><input type="checkbox" id="select-all" onchange="selectAll()"> Select All</label><br><label><input type="checkbox" name="website" value="https://guessthe.game"> Guess The Game</label> <label><input type="checkbox" name="website" value="https://games.oec.world/en/tradle/"> Tradle</label> <label><input type="checkbox" name="website" value="https://globle-game.com/"> Globle Game</label> <label><input type="checkbox" name="website" value="https://worldle.teuteuf.fr/"> Worldle</label> <label><input type="checkbox" name="website" value="https://costcodle.com/"> Costcodle</label> <label><input type="checkbox" name="website" value="https://framed.wtf/"> Framed</label> <label><input type="checkbox" name="website" value="https://timeguessr.com/"> Timeguessr</label> <label><input type="checkbox" name="website" value="https://www.merriam-webster.com/games/quordle/"> Merriam-Webster Quordle</label> <label><input type="checkbox" name="website" value="https://dailydozentrivia.com/"> Daily Dozen Trivia</label> <label><input type="checkbox" name="website" value="https://heardlewordle.io/"> Heardle Wordle</label> <label><input type="checkbox" name="website" value="https://mario-heardle.glitch.me/"> Mario Heardle</label> <label><input type="checkbox" name="website" value="https://zelda-heardle.glitch.me/"> Zelda Heardle</label> <label><input type="checkbox" name="website" value="https://travle.earth/"> Travle</label> <label><input type="checkbox" name="website" value="https://moviegrid.io/"> Movie Grid</label> <label><input type="checkbox" name="website" value="https://spellcheckgame.com/"> Spellcheck Game</label> <label><input type="checkbox" name="website" value="https://boxofficega.me/"> Box Office Game</label> <label><input type="checkbox" name="website" value="https://movietomovie.com/"> Movie to Movie</label> <label><input type="checkbox" name="website" value="https://metazooa.com/"> Metazooa</label> <label><input type="checkbox" name="website" value="https://bandle.app/"> Bandle</label> <label><input type="checkbox" name="website" value="https://listed.fun/"> Listed</label> <label><input type="checkbox" name="website" value="https://www.chronophoto.app/"> Chronophoto</label> <label><input type="checkbox" name="website" value="https://playdopple.com/"> Playdopple</label><!-- Add more options here --> <label>Custom URL: <input type="text" id="custom-url" onkeydown="13===event.keyCode&&(event.preventDefault(),addCustomURL())"></label> <button type="button" onclick="addCustomURL()">Add Custom URL</button> <button type="submit">Launch</button></form></div><main id="iframe-container"><!-- This is where the iframe will be loaded --></main><footer id="bottombar"><div><h4>Boredle.me</h4></div></footer><script>var currentIndex = 0;
-      var selectedWebsites = [];
-      // Function to show options container
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Boredle.me</title><style>body{font-family:Arial,sans-serif;margin:0;padding:0}button{cursor:pointer}.toolbar{background-color:#343b45;color:#fff;padding:0;text-align:center;display:block;overflow:hidden;min-height:1.8em;position:sticky;top:0;width:100%}.toolbar h1{margin:0;margin-top:.05em;display:block;color:#d3d3d3;overflow:none;line-height:.8em;overflow:hidden;position:absolute;left:50%;transform:translateX(-50%)}.toolbar button{font-family:Trebuchet MS;font-size:1em;margin-top:2em;margin-bottom:.3em;border-width:2px;color:rgba(0,0,0,1);border-color:#333029;font-weight:700;border-top-left-radius:15px;border-top-right-radius:15px;border-bottom-left-radius:15px;border-bottom-right-radius:15px;box-shadow:0 1px 0 0 #1c1b18;text-shadow:0 1px 0 #fff;background:linear-gradient(rgba(74,74,74,1),rgba(155,155,155,1));display:none}.toolbar button:hover{background:linear-gradient(rgba(155,155,155,1),rgba(74,74,74,1))}.titlebar{width:100%;display:block}.titlebar a{position:absolute;right:0}.titlebar img{height:1.8em;width:6em;max-width:10dvw}#options-container{padding:20px}#options-container label{display:block;margin-bottom:10px}#iframe-container{display:none}#iframe-container iframe{width:100%;height:calc(100vh - 5vh);border:none}#bottombar{background-color:#343b45;color:#fff;padding:0;text-align:center;display:block;overflow:hidden;min-height:.77em;position:fixed;bottom:0;width:100%}#bottombar h4{margin:0;display:block;color:#d3d3d3;overflow:none;line-height:.82em;overflow:hidden;position:absolute;left:50%;transform:translateX(-50%)}</style></head><body><!--
+      This is the header section of the webpage.
+      It contains the website title, a donation button, and navigation buttons.
+    --><header class="toolbar"><div class="titlebar"><h1>Boredle.me</h1><a href="https://ko-fi.com/J3J6VRKCS" target="_blank"><img id="donate" src="https://storage.ko-fi.com/cdn/brandasset/kofi_s_tag_dark.png" alt="Buy Me a Coffee at ko-fi.com"></a></div><div id="nav"><button onclick="prevWebsite()">Prev</button> <span id="progress"></span> <button onclick="nextWebsite()">Next</button></div></header><div id="options-container"><h2>Select Websites:</h2><!-- 
+        This code represents a form element with the id "options-form".
+        It is used to collect user input and submit it to the server for processing.
+      --><form id="options-form"><label><input type="checkbox" id="select-all" onchange="selectAll()"> Select All</label><br><label><input type="checkbox" name="website" value="https://guessthe.game"> Guess The Game</label> <label><input type="checkbox" name="website" value="https://games.oec.world/en/tradle/"> Tradle</label> <label><input type="checkbox" name="website" value="https://globle-game.com/"> Globle Game</label> <label><input type="checkbox" name="website" value="https://worldle.teuteuf.fr/"> Worldle</label> <label><input type="checkbox" name="website" value="https://costcodle.com/"> Costcodle</label> <label><input type="checkbox" name="website" value="https://framed.wtf/"> Framed</label> <label><input type="checkbox" name="website" value="https://timeguessr.com/"> Timeguessr</label> <label><input type="checkbox" name="website" value="https://www.merriam-webster.com/games/quordle/"> Merriam-Webster Quordle</label> <label><input type="checkbox" name="website" value="https://dailydozentrivia.com/"> Daily Dozen Trivia</label> <label><input type="checkbox" name="website" value="https://heardlewordle.io/"> Heardle Wordle</label> <label><input type="checkbox" name="website" value="https://mario-heardle.glitch.me/"> Mario Heardle</label> <label><input type="checkbox" name="website" value="https://zelda-heardle.glitch.me/"> Zelda Heardle</label> <label><input type="checkbox" name="website" value="https://travle.earth/"> Travle</label> <label><input type="checkbox" name="website" value="https://moviegrid.io/"> Movie Grid</label> <label><input type="checkbox" name="website" value="https://spellcheckgame.com/"> Spellcheck Game</label> <label><input type="checkbox" name="website" value="https://boxofficega.me/"> Box Office Game</label> <label><input type="checkbox" name="website" value="https://movietomovie.com/"> Movie to Movie</label> <label><input type="checkbox" name="website" value="https://metazooa.com/"> Metazooa</label> <label><input type="checkbox" name="website" value="https://bandle.app/"> Bandle</label> <label><input type="checkbox" name="website" value="https://listed.fun/"> Listed</label> <label><input type="checkbox" name="website" value="https://www.chronophoto.app/"> Chronophoto</label> <label><input type="checkbox" name="website" value="https://playdopple.com/"> Playdopple</label> <label>Custom URL: <input type="text" id="custom-url" onkeydown="13===event.keyCode&&(event.preventDefault(),addCustomURL())"></label> <button type="button" onclick="addCustomURL()">Add Custom URL</button> <button type="submit">Launch</button></form></div><!-- 
+        This code represents the main container for an iframe element.
+        The iframe will be loaded inside the <main> element with the id "iframe-container".
+    --><main id="iframe-container"><!-- This is where the iframe will be loaded --></main><!--
+      This is the footer section of the webpage.
+      It contains information about the website, Boredle.me.
+    --><footer id="bottombar"><div><h4>Boredle.me</h4></div></footer><script>var currentIndex = 0; /* Set the current index to 0 */
+      var selectedWebsites =
+        []; /* Initialize an empty array to store selected websites */
       function showOptions() {
+        /* Function to display the options form */
         document.getElementById("options-container").style.display = "block";
       }
-      // Function to handle form submission
+
+      /**
+       * Event listener for the options form submission.
+       * @param {Event} event - The submit event.
+       */
       document
         .getElementById("options-form")
         .addEventListener("submit", function (event) {
@@ -12,66 +29,84 @@
           var checkboxes = document.querySelectorAll(
             "input[name='website']:checked"
           );
-          // Clear the selectedWebsites array before adding newly selected websites
           selectedWebsites = [];
           checkboxes.forEach(function (checkbox) {
             selectedWebsites.push(checkbox.value);
           });
           if (selectedWebsites.length > 0) {
-            document.getElementById("options-container").style.display = "none"; // Hide options container
-            document.getElementById("iframe-container").style.display = "block"; // Show iframe container
+            document.getElementById("options-container").style.display =
+              "none"; /* Hide the options form */
+            document.getElementById("iframe-container").style.display =
+              "block"; /* Display the iframe container */
             document
               .querySelectorAll(".toolbar button")
               .forEach(function (btn) {
-                btn.style.display = "inline-block"; // Show Prev/Next buttons
+                btn.style.display = "inline-block";
               });
-            document.getElementById("donate").style.height = "4em"; // Hide options container
-            document.getElementById("donate").style.width = "8em"; // Hide options container
-            loadWebsite(selectedWebsites[currentIndex]); // Load the first website
-            displayProgress(); // Show progress initially
-            updateUrl(); // Update URL with selected websites
+            document.getElementById("donate").style.height =
+              "4em"; /* Set the height of the donate button */
+            document.getElementById("donate").style.width =
+              "8em"; /* Set the width of the donate button */
+            loadWebsite(
+              selectedWebsites[currentIndex]
+            ); /* Load the first website in the list */
+            displayProgress(); /* Display the progress of the selected websites */
+            updateUrl(); /* Update the URL with the selected websites */
           } else {
+            /* Display an alert if no websites are selected */
             alert("Please select at least one website or add a custom URL.");
           }
         });
-      // Function to load website in iframe or open in new tab if it fails to load
+      /**
+       * Loads a website into an iframe element.
+       * If the website fails to load or has an empty body, it opens in a new window.
+       * @param {string} url - The URL of the website to load.
+       */
       function loadWebsite(url) {
         var iframe = document.createElement("iframe");
         iframe.src = url;
         iframe.onload = function () {
-          // Check if the website loaded successfully
           if (
             iframe.contentDocument &&
             iframe.contentDocument.body.innerHTML === ""
           ) {
-            window.open(url, "_blank"); // Open in new tab if it failed to load
+            window.open(url, "_blank");
           }
         };
         iframe.onerror = function () {
-          window.open(url, "_blank"); // Open in new tab if it failed to load
+          window.open(url, "_blank");
         };
-        document.getElementById("iframe-container").innerHTML = ""; // Clear previous iframe
+        document.getElementById("iframe-container").innerHTML = "";
         document.getElementById("iframe-container").appendChild(iframe);
       }
-      // Function to load next website
+      /**
+       * Function to load the next website in the list.
+       * It updates the source of the iframe element with the URL of the next website,
+       * displays the progress, and updates the URL in the browser.
+       */
       function nextWebsite() {
-        currentIndex = (currentIndex + 1) % selectedWebsites.length; // Update to use selectedWebsites
+        currentIndex = (currentIndex + 1) % selectedWebsites.length;
         document.querySelector("#iframe-container iframe").src =
-          selectedWebsites[currentIndex]; // Update to use selectedWebsites
+          selectedWebsites[currentIndex];
         displayProgress();
-        updateUrl(); // Update URL with current index
+        updateUrl();
       }
-      // Function to load previous website
+      /**
+       * Function to navigate to the previous website in the selectedWebsites array.
+       * It updates the iframe source, displays the progress, and updates the URL.
+       */
       function prevWebsite() {
         currentIndex =
           (currentIndex - 1 + selectedWebsites.length) %
-          selectedWebsites.length; // Update to use selectedWebsites
+          selectedWebsites.length;
         document.querySelector("#iframe-container iframe").src =
-          selectedWebsites[currentIndex]; // Update to use selectedWebsites
+          selectedWebsites[currentIndex];
         displayProgress();
-        updateUrl(); // Update URL with current index
+        updateUrl();
       }
-      // Function to select all checkboxes
+      /**
+       * Selects or deselects all checkboxes with the name 'website' based on the state of the 'select-all' checkbox.
+       */
       function selectAll() {
         var selectAllCheckbox = document.getElementById("select-all");
         var checkboxes = document.querySelectorAll("input[name='website']");
@@ -79,20 +114,34 @@
           checkbox.checked = selectAllCheckbox.checked;
         });
       }
-      // Function to parse URL parameters
+      /**
+       * Retrieves the value of the "websites" parameter from the current URL's query string.
+       * If the parameter is present, it splits the value by comma and returns an array of websites.
+       * If the parameter is not present, it returns an empty array.
+       *
+       * @returns {Array} An array of websites extracted from the "websites" parameter in the URL query string.
+       */
       function getUrlParams() {
         var urlParams = new URLSearchParams(window.location.search);
         return urlParams.get("websites")
           ? urlParams.get("websites").split(",")
           : [];
       }
-      // Function to add custom URL
+      /**
+       * Adds a custom URL to the options form.
+       *
+       * This function retrieves the value of the "custom-url" input field, trims any leading or trailing whitespace,
+       * and checks if it is not empty. If the custom URL does not include "://", it prepends "https://" to it.
+       * It then creates a checkbox input element with the name "website" and the value set to the custom URL.
+       * A label element is created and the checkbox and custom URL text are appended to it.
+       * The label is inserted before the "custom-url" input field's parent element in the options form.
+       * The checkbox is checked and the "custom-url" input field is cleared.
+       */
       function addCustomURL() {
         var customURL = document.getElementById("custom-url").value.trim();
         if (customURL !== "") {
           if (!customURL.includes("://")) {
-            // Check if protocol is specified
-            customURL = "https://" + customURL; // Prepend https:// if protocol is missing
+            customURL = "https://" + customURL;
           }
           var checkbox = document.createElement("input");
           checkbox.type = "checkbox";
@@ -107,17 +156,21 @@
               label,
               document.getElementById("custom-url").parentNode
             );
-          checkbox.checked = true; // Auto-select the added custom URL
-          document.getElementById("custom-url").value = ""; // Clear the input field
+          checkbox.checked = true;
+          document.getElementById("custom-url").value = "";
         }
       }
-      // Display progress
+
       function displayProgress() {
+        /* Function to display the progress of the selected websites */
         var progressElement = document.getElementById("progress");
         progressElement.textContent =
-          currentIndex + 1 + "/" + selectedWebsites.length; // Update to use selectedWebsites
+          currentIndex + 1 + "/" + selectedWebsites.length;
       }
-      // Function to update URL with selected websites
+      /**
+       * Updates the URL with the selected websites.
+       * This function appends the selected websites to the URL query string and updates the browser history.
+       */
       function updateUrl() {
         var queryString = "websites=";
         queryString += selectedWebsites.join(",");
@@ -127,44 +180,61 @@
           window.location.pathname + "?" + queryString
         );
       }
-      // Call the showOptions function when the page loads
+      /**
+       * This function is executed when the window loads.
+       * It performs the following tasks:
+       * 1. Calls the showOptions() function.
+       * 2. Retrieves the URL parameters using the getUrlParams() function.
+       * 3. Checks if there are any URL parameters.
+       * 4. If there are URL parameters, it iterates over the checkboxes and checks the ones that match the URL parameters.
+       * 5. Adds the checked checkboxes to the selectedWebsites array.
+       * 6. Filters out the URL parameters that are already in the selectedWebsites array.
+       * 7. For each custom URL parameter, it creates a new checkbox element, sets its properties, and appends it to the options form.
+       * 8. The new checkbox is checked and added to the selectedWebsites array.
+       * @returns {void}
+       */
       window.onload = function () {
         showOptions();
-        var urlParams = getUrlParams();
+        var urlParams = getUrlParams(); /* Retrieve the URL parameters */
         if (urlParams.length > 0) {
-          // Loop through the checkboxes and check those whose values are in the URL parameters
+          /* Check if there are any URL parameters */
           var checkboxes = document.querySelectorAll("input[name='website']");
           checkboxes.forEach(function (checkbox) {
-            if (urlParams.includes(checkbox.value)) {
+            /* Iterate over the checkboxes and check the ones that match the URL parameters */ if (
+              urlParams.includes(checkbox.value)
+            ) {
+              /* Check if the URL parameter is in the selectedWebsites array */
               checkbox.checked = true;
               if (!selectedWebsites.includes(checkbox.value)) {
+                /* Add the checked checkboxes to the selectedWebsites array */
                 selectedWebsites.push(checkbox.value);
               }
             }
           });
         }
-        // Check for custom URLs in URL parameters
         var customURLParams = urlParams.filter(
+          /* Filter out the URL parameters that are already in the selectedWebsites array */
           (url) => !selectedWebsites.includes(url)
         );
         customURLParams.forEach(function (customURL) {
-          if (!selectedWebsites.includes(customURL)) {
+          /* For each custom URL parameter, create a new checkbox element */ if (
+            !selectedWebsites.includes(customURL)
+          ) {
             selectedWebsites.push(customURL);
-            // Create checkbox for custom URL
             var checkbox = document.createElement("input");
             checkbox.type = "checkbox";
             checkbox.name = "website";
             checkbox.value = customURL;
             checkbox.checked = true;
-            var label = document.createElement("label");
+            var label =
+              document.createElement("label"); /* Create a new label element */
             label.appendChild(checkbox);
             label.appendChild(document.createTextNode(customURL));
-            document
-              .getElementById("options-form")
-              .insertBefore(
-                label,
-                document.getElementById("custom-url").parentNode
-              );
+            document.getElementById("options-form").insertBefore(
+              /* Append the new checkbox to the options form */
+              label,
+              document.getElementById("custom-url").parentNode
+            );
           }
         });
       };</script></body></html>
