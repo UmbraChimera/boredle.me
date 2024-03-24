@@ -309,12 +309,6 @@
         document.getElementById("iframe-container").innerHTML = ""; // Clear previous iframe
         document.getElementById("iframe-container").appendChild(iframe);
       }
-      // Function to handle loading errors
-      function loadError() {
-        // Increment index to load the next website
-        currentIndex = (currentIndex + 1) % selectedWebsites.length;
-        loadWebsite(selectedWebsites[currentIndex]);
-      }
       // Function to load next website
       function nextWebsite() {
         currentIndex = (currentIndex + 1) % selectedWebsites.length; // Update to use selectedWebsites
