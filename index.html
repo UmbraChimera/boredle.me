@@ -258,7 +258,6 @@
         document.getElementById("options-container").style.display = "block";
       }
       // Function to handle form submission
-      // Function to handle form submission
       document
         .getElementById("options-form")
         .addEventListener("submit", function (event) {
@@ -336,14 +335,12 @@
         });
       }
       // Function to parse URL parameters
-      // Function to parse URL parameters
       function getUrlParams() {
         var urlParams = new URLSearchParams(window.location.search);
         return urlParams.get("websites")
           ? urlParams.get("websites").split(",")
           : [];
       }
-
       // Function to add custom URL
       function addCustomURL() {
         var customURL = document.getElementById("custom-url").value.trim();
@@ -372,14 +369,12 @@
           document.getElementById("custom-url").value = ""; // Clear the input field
         }
       }
-
       // Display progress
       function displayProgress() {
         var progressElement = document.getElementById("progress");
         progressElement.textContent =
           currentIndex + 1 + "/" + selectedWebsites.length; // Update to use selectedWebsites
       }
-      // Update URL with selected websites
       // Function to update URL with selected websites
       function updateUrl() {
         var queryString = "websites=";
