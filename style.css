@@ -1,0 +1,118 @@
+body {
+  font-family: Arial, sans-serif; /* Set the default font family */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default margin and padding */
+}
+
+button {
+  cursor: pointer; /* Set cursor to pointer on hover */
+}
+
+.toolbar {
+  background-color: #343b45; /* Set background color for the toolbar */
+  color: #fff; /* Set text color in the toolbar */
+  padding: 0px; /* Set padding for the toolbar */
+  text-align: center; /* Center text in the toolbar */
+  display: block; /* Display the toolbar as a block element */
+  overflow: hidden; /* Hide text that overflows the container */
+  min-height: 1.8em; /* Set the minimum height of the toolbar */
+  position: sticky; /* Make the toolbar sticky */
+  top: 0; /* Position the toolbar at the top of the page */
+  width: 100%; /* Set the width of the toolbar to 100% */
+}
+
+.toolbar h1 {
+  margin: 0; /* Remove default margin for the text in the header */
+  margin-top: 0.05em; /* Add margin above the text in the header */
+  display: block; /* Display the text in the header as a block element */
+  color: #d3d3d3; /* Set text color in the header */
+  overflow: none; /* Hide text that overflows the container */
+  line-height: 0.8em; /* Adjust line height for the text in the header */
+  overflow: hidden; /* Hide text that overflows the container */
+  position: absolute; /* Position the text in the header */
+  left: 50%; /* Center the text in the header */
+  transform: translateX(-50%); /* Center the text in the header */
+}
+.toolbar button {
+  font-family: Trebuchet MS; /* Set the font family of the buttons */
+  font-size: 1em; /* Set the font size of the buttons */
+  margin-top: 2em; /* Add margin above the buttons */
+  margin-bottom: 0.3em; /* Add margin below the buttons */
+  border-width: 2px; /* Set the border width of the buttons */
+  color: rgba(0, 0, 0, 1); /* Set the text color of the buttons */
+  border-color: #333029; /* Set the border color of the buttons */
+  font-weight: bold; /* Make the text bold */
+  border-top-left-radius: 15px; /* Add rounded corners to the buttons */
+  border-top-right-radius: 15px; /* Add rounded corners to the buttons */
+  border-bottom-left-radius: 15px; /* Add rounded corners to the buttons */
+  border-bottom-right-radius: 15px; /* Add rounded corners to the buttons */
+  box-shadow: 0px 1px 0px 0px #1c1b18; /* Add shadow to the buttons */
+  text-shadow: 0px 1px 0px #ffffff; /* Add shadow to the text */
+  background: linear-gradient(
+    /* Set the background color of the buttons */ rgba(74, 74, 74, 1),
+    rgba(155, 155, 155, 1)
+  );
+  display: none; /* Hide the navigation buttons by default */
+}
+
+.toolbar button:hover {
+  background: linear-gradient(
+    /* Change background color on hover */ rgba(155, 155, 155, 1),
+    rgba(74, 74, 74, 1)
+  );
+}
+
+.titlebar {
+  width: 100%; /* Set the width of the titlebar to 100% */
+  display: block; /* Display the titlebar as a block element */
+}
+.titlebar a {
+  position: absolute; /* Position the donate button absolutely */
+  right: 0; /* Position the donate button on the right side */
+}
+.titlebar img {
+  height: 1.8em; /* Set the height of the image */
+  width: 6em; /* Set the width of the image */
+  max-width: 10dvw; /* Set the maximum width of the image */
+}
+#options-container {
+  padding: 20px; /* Add padding to the options container */
+}
+
+#options-container label {
+  display: block; /* Display checkboxes on new lines */
+  margin-bottom: 10px; /* Add margin between checkboxes */
+}
+
+#iframe-container {
+  display: none; /* Hide the iframe container by default */
+}
+
+#iframe-container iframe {
+  width: 100%; /* Set the width of the iframe */
+  height: calc(100vh - 5vh); /* Set the height of the iframe */
+  border: none; /* Remove border around the iframe */
+}
+#bottombar {
+  background-color: #343b45; /* Set background color for the footer */
+  color: #fff; /* Set text color in the footer */
+  padding: 0px; /* Set padding for the footer */
+  text-align: center; /* Center text in the footer */
+  display: block; /* Display the footer as a block element */
+  overflow: hidden; /* Hide text that overflows the container */
+  min-height: 0.77em; /* Set the minimum height of the footer */
+  position: fixed; /* Fix the footer at the bottom of the page */
+  bottom: 0; /* Position the footer at the bottom of the page */
+  width: 100%; /* Set the width of the footer to 100% */
+}
+#bottombar h4 {
+  margin: 0; /* Remove default margin for the text in the footer */
+  display: block; /* Display the text in the footer as a block element */
+  color: #d3d3d3; /* Set text color in the footer */
+  overflow: none; /* Hide text that overflows the container */
+  line-height: 0.82em; /* Adjust line height for the text in the footer */
+  overflow: hidden; /* Hide text that overflows the container */
+  position: absolute; /* Position the text in the footer */
+  left: 50%; /* Center the text in the footer */
+  transform: translateX(-50%); /* Center the text in the footer */
+}
