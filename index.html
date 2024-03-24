@@ -6,127 +6,131 @@
     <title>Boredle.me</title>
     <style>
       body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
+        font-family: Arial, sans-serif; /* Set the default font family */
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default margin and padding */
       }
 
       button {
-        cursor: pointer;
+        cursor: pointer; /* Set cursor to pointer on hover */
       }
 
       .toolbar {
-        background-color: #343b45;
-        color: #fff;
-        padding: 0px;
-        text-align: center;
-        display: block;
-        overflow: hidden;
-        min-height: 1.8em;
-        position: sticky;
-        top: 0;
-        width: 100%;
+        background-color: #343b45; /* Set background color for the toolbar */
+        color: #fff; /* Set text color in the toolbar */
+        padding: 0px; /* Set padding for the toolbar */
+        text-align: center; /* Center text in the toolbar */
+        display: block; /* Display the toolbar as a block element */
+        overflow: hidden; /* Hide text that overflows the container */
+        min-height: 1.8em; /* Set the minimum height of the toolbar */
+        position: sticky; /* Make the toolbar sticky */
+        top: 0; /* Position the toolbar at the top of the page */
+        width: 100%; /* Set the width of the toolbar to 100% */
       }
 
       .toolbar h1 {
-        margin: 0;
-        margin-top: 0.05em;
-        display: block;
-        color: #d3d3d3;
-        overflow: none;
-        line-height: 0.8em;
-        overflow: hidden;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+        margin: 0; /* Remove default margin for the text in the header */
+        margin-top: 0.05em; /* Add margin above the text in the header */
+        display: block; /* Display the text in the header as a block element */
+        color: #d3d3d3; /* Set text color in the header */
+        overflow: none; /* Hide text that overflows the container */
+        line-height: 0.8em; /* Adjust line height for the text in the header */
+        overflow: hidden; /* Hide text that overflows the container */
+        position: absolute; /* Position the text in the header */
+        left: 50%; /* Center the text in the header */
+        transform: translateX(-50%); /* Center the text in the header */
       }
       .toolbar button {
-        font-family: Trebuchet MS;
-        font-size: 1em;
-        margin-top: 2em;
-        margin-bottom: 0.3em;
-        border-width: 2px;
-        color: rgba(0, 0, 0, 1);
-        border-color: #333029;
-        font-weight: bold;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
-        box-shadow: 0px 1px 0px 0px #1c1b18;
-        text-shadow: 0px 1px 0px #ffffff;
+        font-family: Trebuchet MS; /* Set the font family of the buttons */
+        font-size: 1em; /* Set the font size of the buttons */
+        margin-top: 2em; /* Add margin above the buttons */
+        margin-bottom: 0.3em; /* Add margin below the buttons */
+        border-width: 2px; /* Set the border width of the buttons */
+        color: rgba(0, 0, 0, 1); /* Set the text color of the buttons */
+        border-color: #333029; /* Set the border color of the buttons */
+        font-weight: bold; /* Make the text bold */
+        border-top-left-radius: 15px; /* Add rounded corners to the buttons */
+        border-top-right-radius: 15px; /* Add rounded corners to the buttons */
+        border-bottom-left-radius: 15px; /* Add rounded corners to the buttons */
+        border-bottom-right-radius: 15px; /* Add rounded corners to the buttons */
+        box-shadow: 0px 1px 0px 0px #1c1b18; /* Add shadow to the buttons */
+        text-shadow: 0px 1px 0px #ffffff; /* Add shadow to the text */
         background: linear-gradient(
-          rgba(74, 74, 74, 1),
+          /* Set the background color of the buttons */ rgba(74, 74, 74, 1),
           rgba(155, 155, 155, 1)
         );
-        display: none;
-        /* Hide Prev/Next buttons by default */
+        display: none; /* Hide the navigation buttons by default */
       }
 
       .toolbar button:hover {
         background: linear-gradient(
-          rgba(155, 155, 155, 1),
+          /* Change background color on hover */ rgba(155, 155, 155, 1),
           rgba(74, 74, 74, 1)
         );
       }
 
       .titlebar {
-        width: 100%;
-        display: block;
+        width: 100%; /* Set the width of the titlebar to 100% */
+        display: block; /* Display the titlebar as a block element */
       }
       .titlebar a {
-        position: absolute;
-        right: 0;
+        position: absolute; /* Position the donate button absolutely */
+        right: 0; /* Position the donate button on the right side */
       }
       .titlebar img {
-        height: 1.8em;
-        width: 6em;
-        max-width: 10dvw;
+        height: 1.8em; /* Set the height of the image */
+        width: 6em; /* Set the width of the image */
+        max-width: 10dvw; /* Set the maximum width of the image */
       }
       #options-container {
-        padding: 20px;
+        padding: 20px; /* Add padding to the options container */
       }
 
       #options-container label {
-        display: block;
-        margin-bottom: 10px;
+        display: block; /* Display checkboxes on new lines */
+        margin-bottom: 10px; /* Add margin between checkboxes */
       }
 
       #iframe-container {
-        display: none;
+        display: none; /* Hide the iframe container by default */
       }
 
       #iframe-container iframe {
-        width: 100%;
-        height: calc(100vh - 5vh);
-        border: none;
+        width: 100%; /* Set the width of the iframe */
+        height: calc(100vh - 5vh); /* Set the height of the iframe */
+        border: none; /* Remove border around the iframe */
       }
       #bottombar {
-        background-color: #343b45;
-        color: #fff;
-        padding: 0px;
-        text-align: center;
-        display: block;
-        overflow: hidden;
-        min-height: 0.77em;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
+        background-color: #343b45; /* Set background color for the footer */
+        color: #fff; /* Set text color in the footer */
+        padding: 0px; /* Set padding for the footer */
+        text-align: center; /* Center text in the footer */
+        display: block; /* Display the footer as a block element */
+        overflow: hidden; /* Hide text that overflows the container */
+        min-height: 0.77em; /* Set the minimum height of the footer */
+        position: fixed; /* Fix the footer at the bottom of the page */
+        bottom: 0; /* Position the footer at the bottom of the page */
+        width: 100%; /* Set the width of the footer to 100% */
       }
       #bottombar h4 {
-        margin: 0;
-        display: block;
-        color: #d3d3d3;
-        overflow: none;
-        line-height: 0.82em;
-        overflow: hidden;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+        margin: 0; /* Remove default margin for the text in the footer */
+        display: block; /* Display the text in the footer as a block element */
+        color: #d3d3d3; /* Set text color in the footer */
+        overflow: none; /* Hide text that overflows the container */
+        line-height: 0.82em; /* Adjust line height for the text in the footer */
+        overflow: hidden; /* Hide text that overflows the container */
+        position: absolute; /* Position the text in the footer */
+        left: 50%; /* Center the text in the footer */
+        transform: translateX(-50%); /* Center the text in the footer */
       }
     </style>
   </head>
   <body>
+    <!--
+      This is the header section of the webpage.
+      It contains the website title, a donation button, and navigation buttons.
+    -->
+
     <header class="toolbar">
       <div class="titlebar">
         <h1>Boredle.me</h1>
@@ -146,6 +150,10 @@
     </header>
     <div id="options-container">
       <h2>Select Websites:</h2>
+      <!-- 
+        This code represents a form element with the id "options-form".
+        It is used to collect user input and submit it to the server for processing.
+      -->
       <form id="options-form">
         <label>
           <input type="checkbox" id="select-all" onchange="selectAll()" />
@@ -300,7 +308,6 @@
           />
           Playdopple
         </label>
-        <!-- Add more options here -->
         <label
           >Custom URL:
           <input
@@ -313,22 +320,35 @@
         <button type="submit">Launch</button>
       </form>
     </div>
+    <!-- 
+        This code represents the main container for an iframe element.
+        The iframe will be loaded inside the <main> element with the id "iframe-container".
+    -->
     <main id="iframe-container">
       <!-- This is where the iframe will be loaded -->
     </main>
+    <!--
+      This is the footer section of the webpage.
+      It contains information about the website, Boredle.me.
+    -->
     <footer id="bottombar">
       <div>
         <h4>Boredle.me</h4>
       </div>
     </footer>
     <script>
-      var currentIndex = 0;
-      var selectedWebsites = [];
-      // Function to show options container
+      var currentIndex = 0; /* Set the current index to 0 */
+      var selectedWebsites =
+        []; /* Initialize an empty array to store selected websites */
       function showOptions() {
+        /* Function to display the options form */
         document.getElementById("options-container").style.display = "block";
       }
-      // Function to handle form submission
+
+      /**
+       * Event listener for the options form submission.
+       * @param {Event} event - The submit event.
+       */
       document
         .getElementById("options-form")
         .addEventListener("submit", function (event) {
@@ -336,66 +356,84 @@
           var checkboxes = document.querySelectorAll(
             "input[name='website']:checked"
           );
-          // Clear the selectedWebsites array before adding newly selected websites
           selectedWebsites = [];
           checkboxes.forEach(function (checkbox) {
             selectedWebsites.push(checkbox.value);
           });
           if (selectedWebsites.length > 0) {
-            document.getElementById("options-container").style.display = "none"; // Hide options container
-            document.getElementById("iframe-container").style.display = "block"; // Show iframe container
+            document.getElementById("options-container").style.display =
+              "none"; /* Hide the options form */
+            document.getElementById("iframe-container").style.display =
+              "block"; /* Display the iframe container */
             document
               .querySelectorAll(".toolbar button")
               .forEach(function (btn) {
-                btn.style.display = "inline-block"; // Show Prev/Next buttons
+                btn.style.display = "inline-block";
               });
-            document.getElementById("donate").style.height = "4em"; // Hide options container
-            document.getElementById("donate").style.width = "8em"; // Hide options container
-            loadWebsite(selectedWebsites[currentIndex]); // Load the first website
-            displayProgress(); // Show progress initially
-            updateUrl(); // Update URL with selected websites
+            document.getElementById("donate").style.height =
+              "4em"; /* Set the height of the donate button */
+            document.getElementById("donate").style.width =
+              "8em"; /* Set the width of the donate button */
+            loadWebsite(
+              selectedWebsites[currentIndex]
+            ); /* Load the first website in the list */
+            displayProgress(); /* Display the progress of the selected websites */
+            updateUrl(); /* Update the URL with the selected websites */
           } else {
+            /* Display an alert if no websites are selected */
             alert("Please select at least one website or add a custom URL.");
           }
         });
-      // Function to load website in iframe or open in new tab if it fails to load
+      /**
+       * Loads a website into an iframe element.
+       * If the website fails to load or has an empty body, it opens in a new window.
+       * @param {string} url - The URL of the website to load.
+       */
       function loadWebsite(url) {
         var iframe = document.createElement("iframe");
         iframe.src = url;
         iframe.onload = function () {
-          // Check if the website loaded successfully
           if (
             iframe.contentDocument &&
             iframe.contentDocument.body.innerHTML === ""
           ) {
-            window.open(url, "_blank"); // Open in new tab if it failed to load
+            window.open(url, "_blank");
           }
         };
         iframe.onerror = function () {
-          window.open(url, "_blank"); // Open in new tab if it failed to load
+          window.open(url, "_blank");
         };
-        document.getElementById("iframe-container").innerHTML = ""; // Clear previous iframe
+        document.getElementById("iframe-container").innerHTML = "";
         document.getElementById("iframe-container").appendChild(iframe);
       }
-      // Function to load next website
+      /**
+       * Function to load the next website in the list.
+       * It updates the source of the iframe element with the URL of the next website,
+       * displays the progress, and updates the URL in the browser.
+       */
       function nextWebsite() {
-        currentIndex = (currentIndex + 1) % selectedWebsites.length; // Update to use selectedWebsites
+        currentIndex = (currentIndex + 1) % selectedWebsites.length;
         document.querySelector("#iframe-container iframe").src =
-          selectedWebsites[currentIndex]; // Update to use selectedWebsites
+          selectedWebsites[currentIndex];
         displayProgress();
-        updateUrl(); // Update URL with current index
+        updateUrl();
       }
-      // Function to load previous website
+      /**
+       * Function to navigate to the previous website in the selectedWebsites array.
+       * It updates the iframe source, displays the progress, and updates the URL.
+       */
       function prevWebsite() {
         currentIndex =
           (currentIndex - 1 + selectedWebsites.length) %
-          selectedWebsites.length; // Update to use selectedWebsites
+          selectedWebsites.length;
         document.querySelector("#iframe-container iframe").src =
-          selectedWebsites[currentIndex]; // Update to use selectedWebsites
+          selectedWebsites[currentIndex];
         displayProgress();
-        updateUrl(); // Update URL with current index
+        updateUrl();
       }
-      // Function to select all checkboxes
+      /**
+       * Selects or deselects all checkboxes with the name 'website' based on the state of the 'select-all' checkbox.
+       */
       function selectAll() {
         var selectAllCheckbox = document.getElementById("select-all");
         var checkboxes = document.querySelectorAll("input[name='website']");
@@ -403,20 +441,34 @@
           checkbox.checked = selectAllCheckbox.checked;
         });
       }
-      // Function to parse URL parameters
+      /**
+       * Retrieves the value of the "websites" parameter from the current URL's query string.
+       * If the parameter is present, it splits the value by comma and returns an array of websites.
+       * If the parameter is not present, it returns an empty array.
+       *
+       * @returns {Array} An array of websites extracted from the "websites" parameter in the URL query string.
+       */
       function getUrlParams() {
         var urlParams = new URLSearchParams(window.location.search);
         return urlParams.get("websites")
           ? urlParams.get("websites").split(",")
           : [];
       }
-      // Function to add custom URL
+      /**
+       * Adds a custom URL to the options form.
+       *
+       * This function retrieves the value of the "custom-url" input field, trims any leading or trailing whitespace,
+       * and checks if it is not empty. If the custom URL does not include "://", it prepends "https://" to it.
+       * It then creates a checkbox input element with the name "website" and the value set to the custom URL.
+       * A label element is created and the checkbox and custom URL text are appended to it.
+       * The label is inserted before the "custom-url" input field's parent element in the options form.
+       * The checkbox is checked and the "custom-url" input field is cleared.
+       */
       function addCustomURL() {
         var customURL = document.getElementById("custom-url").value.trim();
         if (customURL !== "") {
           if (!customURL.includes("://")) {
-            // Check if protocol is specified
-            customURL = "https://" + customURL; // Prepend https:// if protocol is missing
+            customURL = "https://" + customURL;
           }
           var checkbox = document.createElement("input");
           checkbox.type = "checkbox";
@@ -431,17 +483,21 @@
               label,
               document.getElementById("custom-url").parentNode
             );
-          checkbox.checked = true; // Auto-select the added custom URL
-          document.getElementById("custom-url").value = ""; // Clear the input field
+          checkbox.checked = true;
+          document.getElementById("custom-url").value = "";
         }
       }
-      // Display progress
+
       function displayProgress() {
+        /* Function to display the progress of the selected websites */
         var progressElement = document.getElementById("progress");
         progressElement.textContent =
-          currentIndex + 1 + "/" + selectedWebsites.length; // Update to use selectedWebsites
+          currentIndex + 1 + "/" + selectedWebsites.length;
       }
-      // Function to update URL with selected websites
+      /**
+       * Updates the URL with the selected websites.
+       * This function appends the selected websites to the URL query string and updates the browser history.
+       */
       function updateUrl() {
         var queryString = "websites=";
         queryString += selectedWebsites.join(",");
@@ -451,44 +507,61 @@
           window.location.pathname + "?" + queryString
         );
       }
-      // Call the showOptions function when the page loads
+      /**
+       * This function is executed when the window loads.
+       * It performs the following tasks:
+       * 1. Calls the showOptions() function.
+       * 2. Retrieves the URL parameters using the getUrlParams() function.
+       * 3. Checks if there are any URL parameters.
+       * 4. If there are URL parameters, it iterates over the checkboxes and checks the ones that match the URL parameters.
+       * 5. Adds the checked checkboxes to the selectedWebsites array.
+       * 6. Filters out the URL parameters that are already in the selectedWebsites array.
+       * 7. For each custom URL parameter, it creates a new checkbox element, sets its properties, and appends it to the options form.
+       * 8. The new checkbox is checked and added to the selectedWebsites array.
+       * @returns {void}
+       */
       window.onload = function () {
         showOptions();
-        var urlParams = getUrlParams();
+        var urlParams = getUrlParams(); /* Retrieve the URL parameters */
         if (urlParams.length > 0) {
-          // Loop through the checkboxes and check those whose values are in the URL parameters
+          /* Check if there are any URL parameters */
           var checkboxes = document.querySelectorAll("input[name='website']");
           checkboxes.forEach(function (checkbox) {
-            if (urlParams.includes(checkbox.value)) {
+            /* Iterate over the checkboxes and check the ones that match the URL parameters */ if (
+              urlParams.includes(checkbox.value)
+            ) {
+              /* Check if the URL parameter is in the selectedWebsites array */
               checkbox.checked = true;
               if (!selectedWebsites.includes(checkbox.value)) {
+                /* Add the checked checkboxes to the selectedWebsites array */
                 selectedWebsites.push(checkbox.value);
               }
             }
           });
         }
-        // Check for custom URLs in URL parameters
         var customURLParams = urlParams.filter(
+          /* Filter out the URL parameters that are already in the selectedWebsites array */
           (url) => !selectedWebsites.includes(url)
         );
         customURLParams.forEach(function (customURL) {
-          if (!selectedWebsites.includes(customURL)) {
+          /* For each custom URL parameter, create a new checkbox element */ if (
+            !selectedWebsites.includes(customURL)
+          ) {
             selectedWebsites.push(customURL);
-            // Create checkbox for custom URL
             var checkbox = document.createElement("input");
             checkbox.type = "checkbox";
             checkbox.name = "website";
             checkbox.value = customURL;
             checkbox.checked = true;
-            var label = document.createElement("label");
+            var label =
+              document.createElement("label"); /* Create a new label element */
             label.appendChild(checkbox);
             label.appendChild(document.createTextNode(customURL));
-            document
-              .getElementById("options-form")
-              .insertBefore(
-                label,
-                document.getElementById("custom-url").parentNode
-              );
+            document.getElementById("options-form").insertBefore(
+              /* Append the new checkbox to the options form */
+              label,
+              document.getElementById("custom-url").parentNode
+            );
           }
         });
       };
