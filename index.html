@@ -258,6 +258,7 @@
         document.getElementById("options-container").style.display = "block";
       }
       // Function to handle form submission
+      // Function to handle form submission
       document
         .getElementById("options-form")
         .addEventListener("submit", function (event) {
@@ -265,9 +266,14 @@
           var checkboxes = document.querySelectorAll(
             "input[name='website']:checked"
           );
+
+          // Clear the selectedWebsites array before adding newly selected websites
+          selectedWebsites = [];
+
           checkboxes.forEach(function (checkbox) {
             selectedWebsites.push(checkbox.value);
           });
+
           if (selectedWebsites.length > 0) {
             document.getElementById("options-container").style.display = "none"; // Hide options container
             document.getElementById("iframe-container").style.display = "block"; // Show iframe container
@@ -283,12 +289,22 @@
             alert("Please select at least one website or add a custom URL.");
           }
         });
+
       // Function to load website in iframe or open in new tab if it fails to load
       function loadWebsite(url) {
         var iframe = document.createElement("iframe");
         iframe.src = url;
+        iframe.onload = function () {
+          // Check if the website loaded successfully
+          if (
+            iframe.contentDocument &&
+            iframe.contentDocument.body.innerHTML === ""
+          ) {
+            window.open(url, "_blank"); // Open in new tab if it failed to load
+          }
+        };
         iframe.onerror = function () {
-          window.open(url, "_blank");
+          window.open(url, "_blank"); // Open in new tab if it failed to load
         };
         document.getElementById("iframe-container").innerHTML = ""; // Clear previous iframe
         document.getElementById("iframe-container").appendChild(iframe);
@@ -326,51 +342,43 @@
         });
       }
       // Function to parse URL parameters
+      // Function to parse URL parameters
       function getUrlParams() {
         var urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get("websites");
+        return urlParams.get("websites")
+          ? urlParams.get("websites").split(",")
+          : [];
       }
-      // Function to generate a SHA-256 hash for a given string
-      function sha256(str) {
-        const encoder = new TextEncoder();
-        const data = encoder.encode(str);
-        return crypto.subtle.digest("SHA-256", data).then((hashBuffer) => {
-          const hashArray = Array.from(new Uint8Array(hashBuffer));
-          const hashHex = hashArray
-            .map((byte) => byte.toString(16).padStart(2, "0"))
-            .join("");
-          return hashHex;
-        });
-      }
-      // Function to shorten URL using SHA-256 hash
-      async function shortenUrl(url) {
-        const hash = await sha256(url);
-        return hash.substring(0, 12); // Use the first 12 characters of the hash as the shortened URL
-      }
+
       // Function to add custom URL
-      async function addCustomURL() {
+      function addCustomURL() {
         var customURL = document.getElementById("custom-url").value.trim();
         if (customURL !== "") {
           if (!customURL.includes("://")) {
-            customURL = "https://" + customURL;
+            // Check if protocol is specified
+            customURL = "https://" + customURL; // Prepend https:// if protocol is missing
           }
-          selectedWebsites.push(customURL); // Add the original URL to the selected websites list
           var checkbox = document.createElement("input");
           checkbox.type = "checkbox";
           checkbox.name = "website";
-          checkbox.value = customURL; // Use the original URL as the value
+          checkbox.value = customURL;
+
           var label = document.createElement("label");
           label.appendChild(checkbox);
-          label.appendChild(document.createTextNode(customURL)); // Display original URL
+          label.appendChild(document.createTextNode(customURL));
+
           document
             .getElementById("options-form")
             .insertBefore(
               label,
               document.getElementById("custom-url").parentNode
             );
-          checkbox.checked = true;
+
+          checkbox.checked = true; // Auto-select the added custom URL
+          document.getElementById("custom-url").value = ""; // Clear the input field
         }
       }
+
       // Display progress
       function displayProgress() {
         var progressElement = document.getElementById("progress");
@@ -378,15 +386,59 @@
           currentIndex + 1 + "/" + selectedWebsites.length; // Update to use selectedWebsites
       }
       // Update URL with selected websites
-      // Update URL with selected websites
-      async function updateUrl() {
-        const concatenatedUrls = selectedWebsites.join(","); // Concatenate all selected websites
-        const shortenedUrl = await shortenUrl(concatenatedUrls); // Shorten the concatenated URL
-        const queryString = "?websites=" + encodeURIComponent(shortenedUrl); // Create the query string
-        history.pushState(null, null, window.location.pathname + queryString); // Update the URL
+      // Function to update URL with selected websites
+      function updateUrl() {
+        var queryString = "websites=";
+        queryString += selectedWebsites.join(",");
+        history.pushState(
+          null,
+          null,
+          window.location.pathname + "?" + queryString
+        );
       }
-      // Initial website load
-      showOptions(); // Show options container initially
+      // Call the showOptions function when the page loads
+      window.onload = function () {
+        showOptions();
+        var urlParams = getUrlParams();
+        if (urlParams.length > 0) {
+          // Loop through the checkboxes and check those whose values are in the URL parameters
+          var checkboxes = document.querySelectorAll("input[name='website']");
+          checkboxes.forEach(function (checkbox) {
+            if (urlParams.includes(checkbox.value)) {
+              checkbox.checked = true;
+              if (!selectedWebsites.includes(checkbox.value)) {
+                selectedWebsites.push(checkbox.value);
+              }
+            }
+          });
+        }
+        // Check for custom URLs in URL parameters
+        var customURLParams = urlParams.filter(
+          (url) => !selectedWebsites.includes(url)
+        );
+        customURLParams.forEach(function (customURL) {
+          if (!selectedWebsites.includes(customURL)) {
+            selectedWebsites.push(customURL);
+            // Create checkbox for custom URL
+            var checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.name = "website";
+            checkbox.value = customURL;
+            checkbox.checked = true;
+
+            var label = document.createElement("label");
+            label.appendChild(checkbox);
+            label.appendChild(document.createTextNode(customURL));
+
+            document
+              .getElementById("options-form")
+              .insertBefore(
+                label,
+                document.getElementById("custom-url").parentNode
+              );
+          }
+        });
+      };
     </script>
   </body>
 </html>
