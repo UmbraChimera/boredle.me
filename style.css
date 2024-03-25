@@ -13,7 +13,7 @@ body {
   background-color: #343b45; /* Set background color for the toolbar */
   color: #fff; /* Set text color in the toolbar */
   padding: 0; /* Set padding for the toolbar */
-  text-align: center; /* Center text in the toolbar */
+  text-align: center; /* CenFter text in the toolbar */
   display: block; /* Display the toolbar as a block element */
   overflow: hidden; /* Hide text that overflows the container */
   min-height: 1.8em; /* Set the minimum height of the toolbar */
@@ -24,11 +24,12 @@ body {
 
 .toolbar h1 {
   margin: 0; /* Remove default margin for the text in the header */
-  margin-top: 0.05lh; /* Add margin above the text in the header */
+  margin-top: 0.2lh; /* Add margin above the text in the header */
+  margin-bottom: 0.1lh; /* Add margin below the text in the header */
   display: block; /* Display the text in the header as a block element */
   color: #d3d3d3; /* Set text color in the header */
   overflow: none; /* Hide text that overflows the container */
-  line-height: 0.8em; /* Adjust line height for the text in the header */
+  line-height: 2.4rem; /* Adjust line height for the text in the header */
   overflow: hidden; /* Hide text that overflows the container */
   position: absolute; /* Position the text in the header */
   left: 50%; /* Center the text in the header */
