@@ -93,7 +93,7 @@ button:hover {
 
 #options-container label {
   display: block; /* Display checkboxes on new lines */
-  margin-bottom: .5em; /* Add margin between checkboxes */
+  margin-bottom: 0.5em; /* Add margin between checkboxes */
 }
 
 /* Media query to override column-related styles for screens smaller than a certain width */
