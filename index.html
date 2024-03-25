@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Boredle.me</title>
     <link rel="stylesheet" href="style.css" />
+        <script>
+        function addToBookmark() {
+            var url = window.location.href;
+            var title = document.title;
+
+            if (window.sidebar && window.sidebar.addPanel) { // For Firefox
+                window.sidebar.addPanel(title, url, "");
+            } else if (window.external && ('AddFavorite' in window.external)) { // For Internet Explorer
+                window.external.AddFavorite(url, title);
+            } else if (window.opera && window.print) { // For Opera
+                var elem = document.createElement('a');
+                elem.setAttribute('href',url);
+                elem.setAttribute('title',title);
+                elem.setAttribute('rel','sidebar');
+                elem.click();
+            } else { // For other browsers, fallback to prompting the user
+                alert("Press Ctrl+D to bookmark this page.");
+            }
+        }
+    </script>
   </head>
   <body>
     <!--
@@ -29,9 +49,12 @@
         <button onclick="prevWebsite()">Prev</button>
         <span id="progress"></span>
         <button onclick="nextWebsite()">Next</button>
+        <div style="text-align: left;position:absolute; top:0;left:0;">
+        <button onclick="addToBookmark()">Save Your Custom 'dle list as a bookmark!</button>
+        </div>
       </div>
     </header>
-    <h2>Select Websites:</h2>
+    <h2 id="select_text" >Select Websites:</h2>
     <div id="options-container">
       <!-- 
         This code represents a form element with the id "options-form".
