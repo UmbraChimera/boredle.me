@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Boredle.me</title>
-    <link rel="stylesheet" href="style.css" />      
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!--
@@ -22,7 +22,9 @@
           />
         </a>
       </div>
-      <button id="launch_button" type="submit" form="options-form">Launch</button>
+      <button id="launch_button" type="submit" form="options-form">
+        Launch
+      </button>
       <div id="nav">
         <button onclick="prevWebsite()">Prev</button>
         <span id="progress"></span>
@@ -67,21 +69,33 @@
             Worldle
           </label>
           <label>
-            <input type="checkbox" name="website" value="https://travle.earth/" />
+            <input
+              type="checkbox"
+              name="website"
+              value="https://travle.earth/"
+            />
             Travle
           </label>
         </div>
-        <div class="even_section"> 
+        <div class="even_section">
           <p>Gaming</p>
           <label>
-            <input type="checkbox" name="website" value="https://guessthe.game" />
+            <input
+              type="checkbox"
+              name="website"
+              value="https://guessthe.game"
+            />
             Guess The Game
           </label>
         </div>
         <div class="odd_section">
           <p>Movies</p>
           <label>
-            <input type="checkbox" name="website" value="https://moviegrid.io/" />
+            <input
+              type="checkbox"
+              name="website"
+              value="https://moviegrid.io/"
+            />
             Movie Grid
           </label>
           <label>
@@ -101,7 +115,7 @@
             Movie to Movie
           </label>
         </div>
-        <div class="even_section"> 
+        <div class="even_section">
           <p>Music</p>
           <label>
             <input
@@ -132,7 +146,7 @@
             Bandle
           </label>
         </div>
-        <div class="odd_section"> 
+        <div class="odd_section">
           <p>Misc/Trivia</p>
           <label>
             <input
@@ -166,12 +180,16 @@
             />
             Spellcheck Game
           </label>
-  
+
           <label>
-            <input type="checkbox" name="website" value="https://metazooa.com/" />
+            <input
+              type="checkbox"
+              name="website"
+              value="https://metazooa.com/"
+            />
             Metazooa
           </label>
-  
+
           <label>
             <input type="checkbox" name="website" value="https://listed.fun/" />
             Listed
@@ -185,7 +203,7 @@
             Playdopple
           </label>
         </div>
-        <div class="even_section"> 
+        <div class="even_section">
           <p>Photos</p>
           <label>
             <input type="checkbox" name="website" value="https://framed.wtf/" />
@@ -208,19 +226,20 @@
             Chronophoto
           </label>
         </div>
-        <div class="odd_section" id="custom_dles"> 
+        <div class="odd_section" id="custom_dles">
           <p>Add your other favorites here!</p>
-        <label
-          >Custom URL:
-          <input
-            type="text"
-            id="custom-url"
-            onkeydown="13===event.keyCode&&(event.preventDefault(),addCustomURL())"
-          />
-        </label>
-        <button id="custom_button" type="button" onclick="addCustomURL()">Add Custom URL</button>
-      </div>
-        
+          <label
+            >Custom URL:
+            <input
+              type="text"
+              id="custom-url"
+              onkeydown="13===event.keyCode&&(event.preventDefault(),addCustomURL())"
+            />
+          </label>
+          <button id="custom_button" type="button" onclick="addCustomURL()">
+            Add Custom URL
+          </button>
+        </div>
       </form>
     </div>
     <!-- 
