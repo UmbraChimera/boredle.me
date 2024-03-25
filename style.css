@@ -6,10 +6,7 @@ body {
   font-family: Arial, sans-serif; /* Set the default font family */
   margin: 0; /* Remove default margin */
   padding: 0; /* Remove default margin and padding */
-}
-
-button {
-  cursor: pointer; /* Set cursor to pointer on hover */
+  background-color: rgb(211, 211, 211);
 }
 
 .toolbar {
@@ -37,7 +34,8 @@ button {
   left: 50%; /* Center the text in the header */
   transform: translateX(-50%); /* Center the text in the header */
 }
-.toolbar button {
+button {
+  cursor: pointer; /* Set cursor to pointer on hover */
   font-family: Trebuchet MS; /* Set the font family of the buttons */
   font-size: 2rem; /* Set the font size of the buttons */
   margin-top: 1.5lh; /* Add margin above the buttons */
@@ -56,10 +54,12 @@ button {
     /* Set the background color of the buttons */ rgba(74, 74, 74, 1),
     rgba(155, 155, 155, 1)
   );
-  /* display: none; /* Hide the navigation buttons by default */
+}
+#nav button {
+  display: none; /* Hide the navigation buttons by default */
 }
 
-.toolbar button:hover {
+button:hover {
   background: linear-gradient(
     /* Change background color on hover */ rgba(155, 155, 155, 1),
     rgba(74, 74, 74, 1)
@@ -80,7 +80,15 @@ button {
   max-width: 15dvw; /* Set the maximum width of the image */
 }
 #options-container {
+  margin: auto;
   padding: 1em; /* Add padding to the options container */
+  max-width: 90dvw; /* Limit maximum width */
+  max-height: 80dvh; /* Limit maximum height */
+  column-width: 20dvw; /* Set column width */
+  column-fill: auto; /* Ensure content fills columns in sequence */
+  column-gap: 1em; /* Adjust gap between columns */
+  border: 1px solid #ccc; /* Add border around container */
+  background-color: rgb(192, 192, 192);
 }
 
 #options-container label {
@@ -88,6 +96,39 @@ button {
   margin-bottom: .5em; /* Add margin between checkboxes */
 }
 
+/* Media query to override column-related styles for screens smaller than a certain width */
+@media (max-width: 768px) {
+  #options-container {
+    column-count: 1; /* Set column count to 1 on smaller screens */
+    column-gap: 0; /* Remove gap between columns */
+    max-height: none; /* Remove maximum height on smaller screens */
+    overflow: visible; /* Allow content to expand vertically */
+  }
+}
+
+.odd_section {
+  background-color: rgb(169, 169, 169);
+  border: 5px solid black;
+  border-top-left-radius: 15px; /* Add rounded corners to the buttons */
+  border-top-right-radius: 15px; /* Add rounded corners to the buttons */
+  border-bottom-left-radius: 15px; /* Add rounded corners to the buttons */
+  border-bottom-right-radius: 15px; /* Add rounded corners to the buttons */
+  box-shadow: 0px 1px 0px 0px #1c1b18; /* Add shadow to the buttons */
+  margin-bottom: 0.8rem;
+  padding-left: 0.25rem;
+}
+
+.even_section {
+  background-color: rgb(128, 128, 128);
+  border: 5px solid black;
+  border-top-left-radius: 15px; /* Add rounded corners to the buttons */
+  border-top-right-radius: 15px; /* Add rounded corners to the buttons */
+  border-bottom-left-radius: 15px; /* Add rounded corners to the buttons */
+  border-bottom-right-radius: 15px; /* Add rounded corners to the buttons */
+  box-shadow: 0px 1px 0px 0px #1c1b18; /* Add shadow to the buttons */
+  margin-bottom: 0.8rem;
+  padding-left: 0.25rem;
+}
 #iframe-container {
   display: none; /* Hide the iframe container by default */
 }
@@ -119,4 +160,12 @@ button {
   position: absolute; /* Position the text in the footer */
   left: 50%; /* Center the text in the footer */
   transform: translateX(-50%); /* Center the text in the footer */
+}
+
+#custom_button {
+  position: relative;
+  display: flex;
+  text-align: center;
+  left: 50%; /* Center the text in the header */
+  transform: translateX(-50%); /* Center the text in the header */
 }

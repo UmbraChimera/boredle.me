@@ -24,9 +24,10 @@ document
         "none"; /* Hide the options form */
       document.getElementById("iframe-container").style.display =
         "block"; /* Display the iframe container */
-      document.querySelectorAll(".toolbar button").forEach(function (btn) {
+      document.querySelectorAll("#nav button").forEach(function (btn) {
         btn.style.display = "inline-block";
       });
+      document.getElementById("launch_button").style.display = "none";
       document.getElementById("donate").style.height =
         "4em"; /* Set the height of the donate button */
       document.getElementById("donate").style.width =
@@ -132,7 +133,7 @@ function addCustomURL() {
     label.appendChild(checkbox);
     label.appendChild(document.createTextNode(customURL));
     document
-      .getElementById("options-form")
+      .getElementById("custom_dles")
       .insertBefore(label, document.getElementById("custom-url").parentNode);
     checkbox.checked = true;
     document.getElementById("custom-url").value = "";
@@ -204,7 +205,7 @@ window.onload = function () {
         document.createElement("label"); /* Create a new label element */
       label.appendChild(checkbox);
       label.appendChild(document.createTextNode(customURL));
-      document.getElementById("options-form").insertBefore(
+      document.getElementById("custom_dles").insertBefore(
         /* Append the new checkbox to the options form */
         label,
         document.getElementById("custom-url").parentNode
