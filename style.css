@@ -1,4 +1,8 @@
+html {
+  font-size: 62.5%; /* Set the default font size */
+}
 body {
+  font-size: 1.6rem; /* Set the default font size */
   font-family: Arial, sans-serif; /* Set the default font family */
   margin: 0; /* Remove default margin */
   padding: 0; /* Remove default margin and padding */
@@ -11,7 +15,7 @@ button {
 .toolbar {
   background-color: #343b45; /* Set background color for the toolbar */
   color: #fff; /* Set text color in the toolbar */
-  padding: 0px; /* Set padding for the toolbar */
+  padding: 0; /* Set padding for the toolbar */
   text-align: center; /* Center text in the toolbar */
   display: block; /* Display the toolbar as a block element */
   overflow: hidden; /* Hide text that overflows the container */
@@ -23,7 +27,7 @@ button {
 
 .toolbar h1 {
   margin: 0; /* Remove default margin for the text in the header */
-  margin-top: 0.05em; /* Add margin above the text in the header */
+  margin-top: 0.05lh; /* Add margin above the text in the header */
   display: block; /* Display the text in the header as a block element */
   color: #d3d3d3; /* Set text color in the header */
   overflow: none; /* Hide text that overflows the container */
@@ -35,9 +39,9 @@ button {
 }
 .toolbar button {
   font-family: Trebuchet MS; /* Set the font family of the buttons */
-  font-size: 1em; /* Set the font size of the buttons */
-  margin-top: 2em; /* Add margin above the buttons */
-  margin-bottom: 0.3em; /* Add margin below the buttons */
+  font-size: 2rem; /* Set the font size of the buttons */
+  margin-top: 1.5lh; /* Add margin above the buttons */
+  margin-bottom: 0.25lh; /* Add margin below the buttons */
   border-width: 2px; /* Set the border width of the buttons */
   color: rgba(0, 0, 0, 1); /* Set the text color of the buttons */
   border-color: #333029; /* Set the border color of the buttons */
@@ -52,7 +56,7 @@ button {
     /* Set the background color of the buttons */ rgba(74, 74, 74, 1),
     rgba(155, 155, 155, 1)
   );
-  display: none; /* Hide the navigation buttons by default */
+  /* display: none; /* Hide the navigation buttons by default */
 }
 
 .toolbar button:hover {
@@ -73,15 +77,15 @@ button {
 .titlebar img {
   height: 1.8em; /* Set the height of the image */
   width: 6em; /* Set the width of the image */
-  max-width: 10dvw; /* Set the maximum width of the image */
+  max-width: 15dvw; /* Set the maximum width of the image */
 }
 #options-container {
-  padding: 20px; /* Add padding to the options container */
+  padding: 1em; /* Add padding to the options container */
 }
 
 #options-container label {
   display: block; /* Display checkboxes on new lines */
-  margin-bottom: 10px; /* Add margin between checkboxes */
+  margin-bottom: .5em; /* Add margin between checkboxes */
 }
 
 #iframe-container {
@@ -89,14 +93,14 @@ button {
 }
 
 #iframe-container iframe {
-  width: 100%; /* Set the width of the iframe */
-  height: calc(100vh - 5vh); /* Set the height of the iframe */
+  width: 100dvw; /* Set the width of the iframe */
+  height: calc(100dvh - 10.5dvh); /* Set the height of the iframe */
   border: none; /* Remove border around the iframe */
 }
 #bottombar {
   background-color: #343b45; /* Set background color for the footer */
   color: #fff; /* Set text color in the footer */
-  padding: 0px; /* Set padding for the footer */
+  padding: 0; /* Set padding for the footer */
   text-align: center; /* Center text in the footer */
   display: block; /* Display the footer as a block element */
   overflow: hidden; /* Hide text that overflows the container */
