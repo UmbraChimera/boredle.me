@@ -60,6 +60,20 @@ button {
   display: none; /* Hide the navigation buttons by default */
 }
 
+#launch_button {
+  background: linear-gradient(
+    /* Set the background color of the buttons */ rgb(98, 81, 255, 1),
+    rgba(155, 155, 155, 1)
+  );
+}
+
+#launch_button:hover {
+  background: linear-gradient(
+    /* Change background color on hover */ rgba(155, 155, 155, 1),
+    rgba(98, 81, 255, 1)
+  );
+}
+
 button:hover {
   background: linear-gradient(
     /* Change background color on hover */ rgba(155, 155, 155, 1),
@@ -90,13 +104,24 @@ button:hover {
   column-gap: 1em; /* Adjust gap between columns */
   border: 1px solid #ccc; /* Add border around container */
   background-color: rgb(192, 192, 192);
+  border-top-left-radius: 15px; /* Add rounded corners to the buttons */
+  border-top-right-radius: 15px; /* Add rounded corners to the buttons */
+  border-bottom-left-radius: 15px; /* Add rounded corners to the buttons */
+  border-bottom-right-radius: 15px; /* Add rounded corners to the buttons */
+  box-shadow: 0px 1px 0px 0px #1c1b18; /* Add shadow to the buttons */
 }
 
 #options-container label {
   display: block; /* Display checkboxes on new lines */
   margin-bottom: 0.5em; /* Add margin between checkboxes */
+  border-bottom: 2px solid #333029; /* Add border below checkboxes */
 }
 
+#options-form p {
+  text-align: center;
+  font-size: 2rem;
+  border-bottom: 2px solid #333029;
+}
 /* Media query to override column-related styles for screens smaller than a certain width */
 @media (max-width: 768px) {
   #options-container {
@@ -117,6 +142,7 @@ button:hover {
   box-shadow: 0px 1px 0px 0px #1c1b18; /* Add shadow to the buttons */
   margin-bottom: 0.8rem;
   padding-left: 0.25rem;
+  break-inside: avoid;
 }
 
 .even_section {
@@ -129,6 +155,7 @@ button:hover {
   box-shadow: 0px 1px 0px 0px #1c1b18; /* Add shadow to the buttons */
   margin-bottom: 0.8rem;
   padding-left: 0.25rem;
+  break-inside: avoid;
 }
 #iframe-container {
   display: none; /* Hide the iframe container by default */
