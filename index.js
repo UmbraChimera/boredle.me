@@ -22,6 +22,8 @@ document
     if (selectedWebsites.length > 0) {
       document.getElementById("options-container").style.display =
         "none"; /* Hide the options form */
+      document.getElementById("select_text").style.display =
+        "none"; /* Hide the options form */
       document.getElementById("iframe-container").style.display =
         "block"; /* Display the iframe container */
       document.querySelectorAll("#nav button").forEach(function (btn) {
