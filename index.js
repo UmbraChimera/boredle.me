@@ -5,33 +5,43 @@ function showOptions() {
   document.getElementById("options-container").style.display = "block";
 }
 
-document.getElementById("options-form").addEventListener("submit", function (event) {
-  event.preventDefault();
-  const checkboxes = document.querySelectorAll("input[name='website']:checked");
-  selectedWebsites = Array.from(checkboxes, checkbox => checkbox.value);
-  
-  if (selectedWebsites.length > 0) {
-    const optionsContainer = document.getElementById("options-container");
-    optionsContainer.style.display = "none";
-    document.getElementById("select_text").style.display = "none";
-    document.getElementById("iframe-container").style.display = "block";
-    document.querySelectorAll("#nav button").forEach(btn => btn.style.display = "inline-block");
-    document.getElementById("launch_button").style.display = "none";
-    document.getElementById("donate").style.cssText = "height: 4em; width: 8em;";
-    loadWebsite(selectedWebsites[currentIndex]);
-    displayProgress();
-    updateUrl();
-  } else {
-    alert("Please select at least one website or add a custom URL.");
-  }
-});
+document
+  .getElementById("options-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    const checkboxes = document.querySelectorAll(
+      "input[name='website']:checked"
+    );
+    selectedWebsites = Array.from(checkboxes, (checkbox) => checkbox.value);
+
+    if (selectedWebsites.length > 0) {
+      const optionsContainer = document.getElementById("options-container");
+      optionsContainer.style.display = "none";
+      document.getElementById("select_text").style.display = "none";
+      document.getElementById("iframe-container").style.display = "block";
+      document
+        .querySelectorAll("#nav button")
+        .forEach((btn) => (btn.style.display = "inline-block"));
+      document.getElementById("launch_button").style.display = "none";
+      document.getElementById("donate").style.cssText =
+        "height: 4em; width: 8em;";
+      loadWebsite(selectedWebsites[currentIndex]);
+      displayProgress();
+      updateUrl();
+    } else {
+      alert("Please select at least one website or add a custom URL.");
+    }
+  });
 
 function loadWebsite(url) {
   const iframeContainer = document.getElementById("iframe-container");
   const iframe = document.createElement("iframe");
   iframe.src = url;
   iframe.onload = function () {
-    if (iframe.contentDocument && iframe.contentDocument.body.innerHTML === "") {
+    if (
+      iframe.contentDocument &&
+      iframe.contentDocument.body.innerHTML === ""
+    ) {
       window.open(url, "_blank");
     }
   };
@@ -44,14 +54,17 @@ function loadWebsite(url) {
 
 function nextWebsite() {
   currentIndex = (currentIndex + 1) % selectedWebsites.length;
-  document.querySelector("#iframe-container iframe").src = selectedWebsites[currentIndex];
+  document.querySelector("#iframe-container iframe").src =
+    selectedWebsites[currentIndex];
   displayProgress();
   updateUrl();
 }
 
 function prevWebsite() {
-  currentIndex = (currentIndex - 1 + selectedWebsites.length) % selectedWebsites.length;
-  document.querySelector("#iframe-container iframe").src = selectedWebsites[currentIndex];
+  currentIndex =
+    (currentIndex - 1 + selectedWebsites.length) % selectedWebsites.length;
+  document.querySelector("#iframe-container iframe").src =
+    selectedWebsites[currentIndex];
   displayProgress();
   updateUrl();
 }
@@ -59,7 +72,9 @@ function prevWebsite() {
 function selectAll() {
   const selectAllCheckbox = document.getElementById("select-all");
   const checkboxes = document.querySelectorAll("input[name='website']");
-  checkboxes.forEach(checkbox => checkbox.checked = selectAllCheckbox.checked);
+  checkboxes.forEach(
+    (checkbox) => (checkbox.checked = selectAllCheckbox.checked)
+  );
 }
 
 function getUrlParams() {
@@ -80,15 +95,18 @@ function addCustomURL() {
     const label = document.createElement("label");
     label.appendChild(checkbox);
     label.appendChild(document.createTextNode(customURL));
-    document.getElementById("custom_dles").insertBefore(label, document.getElementById("custom-url").parentNode);
+    document
+      .getElementById("custom_dles")
+      .insertBefore(label, document.getElementById("custom-url").parentNode);
     checkbox.checked = true;
     document.getElementById("custom-url").value = "";
   }
 }
-
 function displayProgress() {
   const progressElement = document.getElementById("progress");
-  progressElement.textContent = `${currentIndex + 1}/${selectedWebsites.length}`;
+  progressElement.textContent = `${currentIndex + 1}/${
+    selectedWebsites.length
+  }`;
 }
 
 function updateUrl() {
@@ -101,7 +119,7 @@ window.onload = function () {
   const urlParams = getUrlParams();
   if (urlParams.length > 0) {
     const checkboxes = document.querySelectorAll("input[name='website']");
-    checkboxes.forEach(checkbox => {
+    checkboxes.forEach((checkbox) => {
       if (urlParams.includes(checkbox.value)) {
         checkbox.checked = true;
         if (!selectedWebsites.includes(checkbox.value)) {
@@ -110,8 +128,10 @@ window.onload = function () {
       }
     });
   }
-  const customURLParams = urlParams.filter(url => !selectedWebsites.includes(url));
-  customURLParams.forEach(customURL => {
+  const customURLParams = urlParams.filter(
+    (url) => !selectedWebsites.includes(url)
+  );
+  customURLParams.forEach((customURL) => {
     if (!selectedWebsites.includes(customURL)) {
       selectedWebsites.push(customURL);
       const checkbox = document.createElement("input");
@@ -122,7 +142,9 @@ window.onload = function () {
       const label = document.createElement("label");
       label.appendChild(checkbox);
       label.appendChild(document.createTextNode(customURL));
-      document.getElementById("custom_dles").insertBefore(label, document.getElementById("custom-url").parentNode);
+      document
+        .getElementById("custom_dles")
+        .insertBefore(label, document.getElementById("custom-url").parentNode);
     }
   });
 };
