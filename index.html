@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Boredle.me</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
   </head>
   <body>
     <!--
@@ -31,7 +38,7 @@
         <button onclick="nextWebsite()">Next</button>
       </div>
     </header>
-    <h2>Select Websites:</h2>
+    <h2 id="select_text" >Select Websites:</h2>
     <div id="options-container">
       <!-- 
         This code represents a form element with the id "options-form".
@@ -113,6 +120,14 @@
               value="https://movietomovie.com/"
             />
             Movie to Movie
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="website"
+              value="https://www.mega-critic.com/game/home"
+            />
+            MegaCritic
           </label>
         </div>
         <div class="even_section">
@@ -246,7 +261,6 @@
         This code represents the main container for an iframe element.
         The iframe will be loaded inside the <main> element with the id "iframe-container".
     -->
-    <script src="index.js"></script>
     <main id="iframe-container">
       <!-- This is where the iframe will be loaded -->
     </main>
@@ -259,5 +273,6 @@
         <h4>Boredle.me</h4>
       </div>
     </footer>
+    <script src="index.js"></script>
   </body>
 </html>
